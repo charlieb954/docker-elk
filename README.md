@@ -28,20 +28,6 @@ Other available stack variants:
 * [`tls`](https://github.com/deviantony/docker-elk/tree/tls): TLS encryption enabled in Elasticsearch
 * [`searchguard`](https://github.com/deviantony/docker-elk/tree/searchguard): Search Guard support
 
----
-
-## Philosophy
-
-We aim at providing the simplest possible entry into the Elastic stack for anybody who feels like experimenting with
-this powerful combo of technologies. This project's default configuration is purposely minimal and unopinionated. It
-does not rely on any external dependency, and uses as little custom automation as necessary to get things up and
-running.
-
-Instead, we believe in good documentation so that you can use this repository as a template, tweak it, and make it _your
-own_. [sherifabdlnaby/elastdocker][elastdocker] is one example among others of project that builds upon this idea.
-
----
-
 ## Contents
 
 1. [Requirements](#requirements)
@@ -104,11 +90,6 @@ By default, the stack exposes the following ports:
 > instructions from the Elasticsearch documentation: [Important System Configuration][es-sys-config].
 
 ### Docker Desktop
-
-#### Windows
-
-If you are using the legacy Hyper-V mode of _Docker Desktop for Windows_, ensure [File Sharing][win-filesharing] is
-enabled for the `C:` drive.
 
 #### macOS
 
@@ -250,16 +231,6 @@ To use a different version of the core Elastic components, simply change the ver
 file. If you are upgrading an existing stack, remember to rebuild all container images using the `docker-compose build`
 command.
 
-> **Warning**  
-> Always pay attention to the [official upgrade instructions][upgrade] for each individual component before performing a
-> stack upgrade.
-
-Older major versions are also supported on separate branches:
-
-* [`release-7.x`](https://github.com/deviantony/docker-elk/tree/release-7.x): 7.x series
-* [`release-6.x`](https://github.com/deviantony/docker-elk/tree/release-6.x): 6.x series (End-of-life)
-* [`release-5.x`](https://github.com/deviantony/docker-elk/tree/release-5.x): 5.x series (End-of-life)
-
 ## Configuration
 
 > **Note**  
@@ -314,14 +285,6 @@ logstash:
 
 Please refer to the following documentation page for more details about how to configure Logstash inside Docker
 containers: [Configuring Logstash for Docker][ls-docker].
-
-### How to disable paid features
-
-Switch the value of Elasticsearch's `xpack.license.self_generated.type` setting from `trial` to `basic` (see [License
-settings][trial-license]).
-
-You can also cancel an ongoing trial before its expiry date — and thus revert to a basic license — either from the
-[License Management][license-mngmt] panel of Kibana, or using Elasticsearch's [Licensing APIs][license-apis].
 
 ### How to scale out the Elasticsearch cluster
 
@@ -422,8 +385,6 @@ See the following Wiki pages:
 [trial-license]: https://www.elastic.co/guide/en/elasticsearch/reference/current/license-settings.html
 [license-mngmt]: https://www.elastic.co/guide/en/kibana/current/managing-licenses.html
 [license-apis]: https://www.elastic.co/guide/en/elasticsearch/reference/current/licensing-apis.html
-
-[elastdocker]: https://github.com/sherifabdlnaby/elastdocker
 
 [docker-install]: https://docs.docker.com/get-docker/
 [compose-install]: https://docs.docker.com/compose/install/
